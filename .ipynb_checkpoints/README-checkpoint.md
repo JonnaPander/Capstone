@@ -1,47 +1,31 @@
-# Capstone: Check In 3
+# Capstone: Check In 4
 
 ### Contents:
-- [Check In 3 Update](#Project)
+- [Problem Statement](#Problem-Statement)
+- [Executive Summary](#Executive-Summary)
+- [Data Sources](#Data-Sources)
+- [Data Dictionary](#Data-Dictionary)
+- [Conclusions/Recommendations](#Conclusions)
 
+<a id=Problem-Statement></a>
+## Problem Statement: 
+Do certain types of venues in an area correlate with the average real estate prices in that area.
 
-<a id=Project></a>
-## Project: Nearby Venues and Real Estate Prices in Santa Clara County, California
+<a id=Executive-Summary></a>
+## Executive Summary: 
+#### Goal  
+The goal of this project is to determine if there is a correlation betweent ypes of venues in an area and the average real estate prices in that area.  The area of focus is Santa Clara County in California.
+#### Data  
+Location data was obtained by webscraping Wikipedia for a list of cities in the California Bay Area. (https://en.wikipedia.org/wiki/List_of_cities_and_towns_in_the_San_Francisco_Bay_Area)
+Real Estate data detailing the average prices per city in Santa Clara County. The data provided was in a pdf which could not be scraped.  Data was copied directly into a csv file for upload.(https://www.sccaor.com/pdf/stats/2019.pdf)
+Venues for each city were obtained from Foursquare using an API. (https://api.foursquare.com/v2/venues/explore)
+#### Metrics     
+Principal Component Analysis (PCA) was used to model the data.  Success metrics include the R2 Score and Mean Squared Error (MSE)
+#### Findings
+There is not a strong correlation between venues types and average housing prices.
 
-**Do you have data fully in hand and if not, what blockers are you facing?** <br>
-Yes. Finding suitable data took forever. Data includes:<br>  
-- List of cities in Santa Clara County via web scraping - Wikipedia, Santa Clara County Home Sales 2019<br>
-- Home sales prices transferred to csv from a pdf: https://www.sccaor.com/pdf/stats/2019.pdf<br>   
-- Nearby venues via API - Foursquare<br>
-
-**Have you done a full EDA on all of your data?** 
-No.  Need to explore housing prices in relation to nearby venues further.<br>        
-
-**Have you begun the modeling process? How accurate are your predictions so far?**     
-Yes. I'm doing a combination of K-Means Clustering and Principal Component Analysis. I have not run PCA yet and don't have an assessment of accuracy.<br>
-
-**What blockers are you facing, including processing power, data acquisition, modeling difficulties, data cleaning, etc.? How can we help you overcome those challenges?** 
-I think I'm on the right track now. It took forever to decide on and find data I wanted to use.<br> 
-  
-**Have you changed topics since your lightning talk? Since you submitted your Problem Statement and EDA? If so, do you have the necessary data in hand (and the requisite EDA completed) to continue moving forward?**
-Yes, I have changed topics. New Project: How do surrounding venues correlate with real estate prices of single-family homes in Santa Clara County, CA.      
-I have all of the data I need at this point.<br>  
-
-**What is your timeline for the next week and a half? What do you have to get done versus what would you like to get done?**
-Build out the PCA model and go back and cleanup code.<br>    
-
-**What topics do you want to discuss during your 1:1?**   
-Am I missing anything?    
-
-
-
-
-
-
-
-
-
-
-
+#### Risks/Limitations/Assumptions
+This subset of venue types and housing prices may be too small and too uniform to determine if there is a correlation.
 
 
 
