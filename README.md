@@ -10,12 +10,12 @@
 - [Conclusions](#Conclusions)
 
 <a id=Problem-Statement></a>
-## Problem Statement: 
+### Problem Statement: 
 
 Can nearby venues be used to predict whether the average price per square foot for a neighborhood in Austin, Texas is, on average, less or greater than 400 dollars per square foot.
 
 <a id=Executive-Summary></a>
-## Executive Summary: 
+### Executive Summary: 
  
 The goal of this project is to explor whether or not venue types in neighborhoods throughout Austin, Texas contribute to the average price per square footage of a home for that neighborhood. People who are interested in this information are those looking for what neighborhood to purchase a home in based on the right mix of price and nearby attractions for them.
 
@@ -26,14 +26,14 @@ I treated this as a classification problem and grouped the prices into two (2) c
 Two uncommon libraries were used in this project. Geopy was used to pull latitude and longitude coordinates for each city and Folium was used to visualize the locations of cities in a map.
 
 <a id=Data-Sources></a>
-#### Data Sources
+### Data Sources
 
 Location data was obtained by webscraping Wikipedia for a list of neighborhoods in Austin, Texas. (https://en.wikipedia.org/wiki/List_of_Austin_neighborhoods)
 Real Estate data detailing the average prices per square foot per neighborhood was obtained from  neighborhoods.com (https://www.neighborhoods.com)
 Venues for each neighborhood were obtained from Foursquare using an API. (https://api.foursquare.com/v2/venues/explore)
 
 <a id=Data Dictionary></a>
-## Data Dictionary
+### Data Dictionary
 |Feature|Type|Dataset|Description|
 |---|---|---|---|
 |**Neighborhood**|*object*|df_comb|Name of neighborhood|
@@ -41,38 +41,41 @@ Venues for each neighborhood were obtained from Foursquare using an API. (https:
 |**Price Group**|*int*|df_comb|0 for price <400/sq.ft. and 1 for >400/sq.ft.|
 
 <a id=Metrics></a>
-#### Metrics    
+### Metrics    
 
 Several models were applied to the problem.  I used Principal Component Analysis (PCA), Support Vector Machines (SVM), Decision Trees, and Logistic Regression.  The Decision Tree model performed the best with a Testing Accuracy score of 0.875.  SVM and Logistic Regression both scored 0.625 on the Testing Accuracy.
 Since the data set is so large with a total of 263 columns representing venue types I am using PCA to explain the results. The success metrics for PCA include an R2 Score of 0.23 and Mean Squared Error (MSE) of 0.18.
 
 <a id=Limitations></a>
-#### Limitations
+### Limitations
 There were several challenges in this project.  For one, getting a complete set of data was not possible.  Either geopy did not return coordinates or neighborhoods.com did not have sales data.  This resulted in going from and original list of 59 neighborhoods to 37.  Additionally, a dataset of neighborhoods in just one city yields a small test set.  This became less of an issue when I turned my target into a binary classification instead of 20 price ranges. 
 
 <a id=Conclusions></a>
-#### Conclusions
-Using PCA to assess the impact of venues types on real estate prices, the venue types with the most positive correlation or effect are:
-- Italian Restaurant
-- Art Gallery
-- Seafood Restaurant
-- Ice Cream Shop
-- Spa
+### Conclusions
+Using PCA and Linear Regression for coefficients to assess the impact of venues types on real estate prices, the venue types with the most positive correlation or effect are:
+- Other Great Outdoors
+- Pilates Studio
+- Nature Preserve
+- Flower Shop
+- Vegetarian/Vegan Restaurant
+
 
 Venue types with the most negative effect are:
-- Pool Hall
-- Camera Store
-- Auto Dealership
-- Bagel Shop
-- Indian Restaurant
+- Discount Store
+- Tennis Court
+- Food & Drink Shop
+- Fried Chicken Joint
+- Used Book Store
+
 
 Venue types with the least correlation are:
-- Playground
-- Platform
-- Tennis Court
-- Kitchen Supply Store
-- Golf Driving Range
+- Credit Union
+- Recording Studio
+- Lingerie Store
+- College Quad
+- Smoothie Shop
 
+Overall, the scores on the modeling were not high enough to suggest that venues have predictive power towards real estate prices. 
 
 
 

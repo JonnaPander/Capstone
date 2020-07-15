@@ -1,3 +1,0 @@
-# Coursera_Capstone
-
-testing
