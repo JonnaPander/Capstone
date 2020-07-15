@@ -17,9 +17,9 @@ Can nearby venues be used to predict whether the average price per square foot f
 <a id=Executive-Summary></a>
 ### Executive Summary: 
  
-The goal of this project is to explor whether or not venue types in neighborhoods throughout Austin, Texas contribute to the average price per square footage of a home for that neighborhood. People who are interested in this information are those looking for what neighborhood to purchase a home in based on the right mix of price and nearby attractions for them.
+Austin is one of the hottest real estate markets in the country right now.  What's driving this boom? Is it the amenities and entertainment the city has to offer or is it Californians and their silicon valley money!  The goal of this project is to explore whether or not venue types in neighborhoods throughout Austin, Texas contribute to the average price per square footage of a home for that neighborhood. People who are interested in this information are those looking for what neighborhood to purchase a home in based on the right mix of price and nearby attractions for them.
 
-Location data for 37 neighborhoods in Austin was obtained along with the average price per square foot and a compilation of venue types within a 1000 meter radius of the neighborhood's center. I ended up with a total of 263 unique venue types.  Names of neighborhoods was obtained from Wikipedia via web scraping, real estate data was obtained from neighborhoods.com via web scraping, and venue data was obtained from Foursquare using an API.
+Location data for 37 neighborhoods in Austin was obtained along with the average price per square foot and a compilation of venue types within a 4000 meter radius of the neighborhood's center. I ended up with a total of 247 unique venue types.  Names of neighborhoods was obtained from Wikipedia via web scraping, real estate data was obtained from neighborhoods.com via web scraping, and venue data was obtained from Foursquare using an API.
 
 I treated this as a classification problem and grouped the prices into two (2) categories, one for real estate less than and average of 400 dollars per square foot and real estate that is, on average, greater than 400 dollars per square foot.
 
@@ -43,8 +43,8 @@ Venues for each neighborhood were obtained from Foursquare using an API. (https:
 <a id=Metrics></a>
 ### Metrics    
 
-Several models were applied to the problem.  I used Principal Component Analysis (PCA), Support Vector Machines (SVM), Decision Trees, and Logistic Regression.  The Decision Tree model performed the best with a Testing Accuracy score of 0.875.  SVM and Logistic Regression both scored 0.625 on the Testing Accuracy.
-Since the data set is so large with a total of 263 columns representing venue types I am using PCA to explain the results. The success metrics for PCA include an R2 Score of 0.23 and Mean Squared Error (MSE) of 0.18.
+Several models were applied to the problem.  I used Principal Component Analysis (PCA), Support Vector Machines (SVM), Decision Trees, and Logistic Regression.  The Decision Tree, SVM, and Logistic Regression models all scored a Testing Accuracy score of 0.875 with Logistics Regression being the least overfit to the training data. The PCA model yielded R2 Score of 0.28 and Mean Squared Error (MSE) of 0.17.
+Since the data set is so large with a total of 247 columns representing venue types I am using PCA with coefficients from Linear Regression to explain the correlations of venues to real estate prices. 
 
 <a id=Limitations></a>
 ### Limitations
@@ -53,29 +53,26 @@ There were several challenges in this project.  For one, getting a complete set 
 <a id=Conclusions></a>
 ### Conclusions
 Using PCA and Linear Regression for coefficients to assess the impact of venues types on real estate prices, the venue types with the most positive correlation or effect are:
-- Other Great Outdoors
-- Pilates Studio
-- Nature Preserve
-- Flower Shop
+- Hotel Bar
+- Coffee Shop
 - Vegetarian/Vegan Restaurant
-
+- Food Truck
+- Beer Garden
 
 Venue types with the most negative effect are:
 - Discount Store
-- Tennis Court
-- Food & Drink Shop
-- Fried Chicken Joint
-- Used Book Store
-
+- Fast Food Restaurant
+- Wings Joint
+- Arts & Crafts Store
+- Electronics Store
 
 Venue types with the least correlation are:
-- Credit Union
-- Recording Studio
-- Lingerie Store
-- College Quad
-- Smoothie Shop
+- Student Center
+- Botanical Garden
+- American Restaurant
+- Wine Bar
+- Gastropub
 
-Overall, the scores on the modeling were not high enough to suggest that venues have predictive power towards real estate prices. 
 
 
 
